@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 const ItemDetails = ({ match }) => {
+	console.log('match ', match);
 	const [product, setProduct] = useState();
 	const productId = match.params.id;
 	const [isLoading, setIsLoading] = useState();
