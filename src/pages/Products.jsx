@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 const Products = () => {
 	const [products, setProducts] = useState();
@@ -13,6 +13,10 @@ const Products = () => {
 		getAll();
 	}, []);
 
+	let history = useHistory();
+	const handleRedirect = () => {
+		history.push('/protected');
+	};
 	return (
 		<div>
 			<p>Products</p>
@@ -24,6 +28,9 @@ const Products = () => {
 						</li>
 					))}
 			</ul>
+			<button type='button' onClick={handleRedirect}>
+				Redirect
+			</button>
 		</div>
 	);
 };
